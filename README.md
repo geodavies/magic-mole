@@ -1,6 +1,13 @@
 # Magic Mole
 Bash network tunnel manager
 
+### Required Packages
+- grep
+- awk
+- sed
+- cat
+- autossh
+
 ### Installing
 First start by cloning this repository
 
