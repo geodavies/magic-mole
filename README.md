@@ -31,7 +31,7 @@ vi magic-mole.sh
 You can now execute the script directly from the git repository directory if you choose but you may want to
 create a symlink to the script so it can be executed from anywhere in the terminal.
 ```
-sudo ln -s magic-mole.sh /usr/bin/mm
+sudo ln -s $PWD/magic-mole.sh /usr/local/bin/mm
 ```
 The script can now be run from anywhere by using the command '*mm*'
 
