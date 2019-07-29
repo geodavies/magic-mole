@@ -13,7 +13,7 @@ First start by cloning this repository
 
 ```
 cd <your-git-folder>
-git clone git@github.com:geodavies/magic-mole.git
+git clone https://github.com/geodavies/magic-mole.git
 ```
 Next we need to configure which tunnels you want to use. This script will look for the file *example-tunnels.csv*
 for the configuration of the tunnels by default. This location can be changed by updating the location at the top of the script.
