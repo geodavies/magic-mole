@@ -19,14 +19,28 @@ Next we need to configure which tunnels you want to use. This script will look f
 for the configuration of the tunnels by default. This location can be changed by updating the location at the top of the script.
 
 The *example-tunnels.csv* file inside this repository can be used as a starting point but you will likely want to move this somewhere more permanent in the long run.
+
+**Linux**
 ```
 cd magic-mole
 mv example-tunnels.csv /home/$USER/tunnels.csv
 ```
+**MacOS**
+```
+cd magic-mole
+mv example-tunnels.csv /Users/$USER/tunnels.csv
+```
 You will then want to make sure you change the file location that's being looked at by the script. This can be changed right at the top of the script.
+
+**Linux**
 ```
 vi magic-mole.sh
 *Edit file location at the top to '/home/$USER/tunnels.csv'*
+```
+**MacOS**
+```
+vi magic-mole.sh
+*Edit file location at the top to '/Users/$USER/tunnels.csv'*
 ```
 You can now execute the script directly from the git repository directory if you choose but you may want to
 create a symlink to the script so it can be executed from anywhere in the terminal.
