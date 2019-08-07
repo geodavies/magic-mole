@@ -23,13 +23,13 @@ The *example-tunnels.csv* file inside this repository can be used as a starting 
 **Linux**
 ```
 cd magic-mole
-mv example-tunnels.csv /home/$USER/tunnels.csv
+cp example-tunnels.csv /home/$USER/tunnels.csv
 sed -i 's/^input=.*$/input="\/home\/$USER\/tunnels.csv"/g' magic-mole.sh
 ```
 **MacOS**
 ```
 cd magic-mole
-mv example-tunnels.csv /Users/$USER/tunnels.csv
+cp example-tunnels.csv /Users/$USER/tunnels.csv
 sed -i '' 's/^input=.*$/input="\/Users\/$USER\/tunnels.csv"/g' magic-mole.sh
 ```
 You can now execute the script directly from the git repository directory if you choose but you may want to
