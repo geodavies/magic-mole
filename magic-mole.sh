@@ -52,8 +52,8 @@ esac
 
 # Checks if a tunnel is currently running
 function isTunnelRunning {
-	local processCount="$(ps -ef | grep ${1}:${2}:${3} | grep -v grep | awk '{print $2}' | wc -l)"
-	if [ "$processCount" -gt 1 ]; then
+	local processCount="$(ps -ef | grep ${1}:${2}:${3} | grep -v grep | awk '{print $2}' | wc -l | awk '{print $1}')"
+	if [ "$processCount" -ge 1 ]; then
 		echo 'true'
 	else
 		echo 'false'
@@ -110,8 +110,6 @@ function startTunnel {
 	else
 		# Tunnel is down so start it up
 		prettyPrint "$1" "$2" "$3" "$4" "$5" "$6" 'Starting'
-		# Kill current tunnel
-		killTunnelProcesses "$4" "$3" "$5"
 		# Start the tunnel in the background
 		startTunnelProcess "$4" "$3" "$5" "$6"
 	fi
@@ -154,7 +152,7 @@ function startTunnelProcess {
 
 # Kills any processes currently running for a tunnel
 function killTunnelProcesses {
-	ps -ef | grep ${1}:${2}:${3} | grep -v grep | awk '{print $2}' | while read pid ; do kill -9 $pid ; done
+	kill $(ps -ef | grep ${1}:${2}:${3} | grep /bin/ssh | grep -v grep | awk '{print $2 " " $3}')
 }
 
 # Searches and extracts matching tunnels from spreadsheet
