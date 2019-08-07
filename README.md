@@ -18,29 +18,19 @@ git clone https://github.com/geodavies/magic-mole.git
 Next we need to configure which tunnels you want to use. This script will look for the file *example-tunnels.csv*
 for the configuration of the tunnels by default. This location can be changed by updating the location at the top of the script.
 
-The *example-tunnels.csv* file inside this repository can be used as a starting point but you will likely want to move this somewhere more permanent in the long run.
+The *example-tunnels.csv* file inside this repository can be used as a starting point but you will likely want to move this somewhere more permanent in the long run. The below commands for your system will move the *example-tunnels.csv* file to your home directory and change the location in the script. If you already have a *tunnels.csv* file in your home directory it will be replaced, so make sure you back it up first or skip the second command.
 
 **Linux**
 ```
 cd magic-mole
 mv example-tunnels.csv /home/$USER/tunnels.csv
+sed -i 's/^input=.*$/input="\/home\/$USER\/tunnels.csv"/g' magic-mole.sh
 ```
 **MacOS**
 ```
 cd magic-mole
 mv example-tunnels.csv /Users/$USER/tunnels.csv
-```
-You will then want to make sure you change the file location that's being looked at by the script. This can be changed right at the top of the script.
-
-**Linux**
-```
-vi magic-mole.sh
-*Edit file location at the top to '/home/$USER/tunnels.csv'*
-```
-**MacOS**
-```
-vi magic-mole.sh
-*Edit file location at the top to '/Users/$USER/tunnels.csv'*
+sed -i '' 's/^input=.*$/input="\/Users\/$USER\/tunnels.csv"/g' magic-mole.sh
 ```
 You can now execute the script directly from the git repository directory if you choose but you may want to
 create a symlink to the script so it can be executed from anywhere in the terminal.
