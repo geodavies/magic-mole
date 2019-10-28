@@ -35,13 +35,22 @@ case "$subcommand" in
 	start)
 		command='start'
 		;;
+	up)
+		command='start'
+		;;
 	stop)
+		command='stop'
+		;;
+	down)
 		command='stop'
 		;;
 	restart)
 		command='restart'
 		;;
 	status)
+		command='status'
+		;;
+	ls)
 		command='status'
 		;;
 	*)
@@ -63,6 +72,7 @@ function isTunnelRunning {
 # Prints the table header
 function printHeader {
 	headerPrinted=true
+	echo -e "       _____\n     \'_   _'/        ･:*:･ﾟ★,｡･:*:･ﾟ☆｡･:*:･ﾟ★,｡･:*:･ﾟ☆\n     |(>)-(<)|        ✧･ﾟ: *✧･ﾟ:* MAGIC MOLE *:･ﾟ✧*:･ﾟ✧\n  ../  ' O '  \..     ･:*:･ﾟ★,｡･:*:･ﾟ☆｡･:*:･ﾟ★,｡･:*:･ﾟ☆\n''(((:-.,_,.-:)))''\n"
 	printf "%-25s \e[95m|\e[39m %-30s \e[95m|\e[39m %-15s \e[95m|\e[39m %-15s \e[95m|\e[39m %-15s \e[95m|\e[39m %-25s \e[95m|\e[39m %-7s" 'Tunnel Name' 'Tags' 'IP' 'Local Port' 'Remote Port' 'Bastion' 'Status'
 	printf "\n\e[95m--------------------------+--------------------------------+-----------------+-----------------+-----------------+---------------------------+----------\e[39m\n"
 }
